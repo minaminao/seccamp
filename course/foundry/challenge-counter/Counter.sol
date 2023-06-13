@@ -11,4 +11,8 @@ contract Counter {
     function increment() public {
         number++;
     }
+
+    function decrement() public {
+        ////////// YOUR CODE HERE //////////
+    }
 }

@@ -1,1 +1,8 @@
 .obsidian
+
+course/**/_*
+
+# Foundry
+.github/workflows/test.yml
+cache
+out
