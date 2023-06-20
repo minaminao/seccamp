@@ -1,6 +1,9 @@
 .obsidian
+.vscode
 
 course/**/_*
+course/**/*Solution.sol
+course/**/*Solution.t.sol
 
 # Foundry
 .github/workflows/test.yml

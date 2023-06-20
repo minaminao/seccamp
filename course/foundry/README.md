@@ -112,9 +112,9 @@ Running 2 tests for test/Counter.t.sol:CounterTest
 Test result: ok. 2 passed; 0 failed; finished in 32.06ms
 ```
 
-Counter.t.solの2つのテストが実行され、どちらも`PASS`しているのがわかります。
+`Counter.t.sol`の2つのテストが実行され、どちらも`PASS`しているのがわかります。
 
-Counter.t.solの中身は以下です。
+`Counter.t.sol`の中身は以下です。
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
