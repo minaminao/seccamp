@@ -1,7 +1,7 @@
 # Foundryの紹介
 
 このゼミでは、開発ツールとして[Foundry](https://github.com/foundry-rs/foundry)を使います。
-Foundryは[Paradigm](https://www.paradigm.xyz/)が主導して開発をしているOSSです。
+Foundryは[Paradigm](https://www.paradigm.xyz/)が主導して開発をしているRust製のOSSです。
 このページではFoundryの概要とよく使うコマンドの一つである`forge test`について簡単に紹介します。
 最後に演習があります。
 
@@ -163,7 +163,7 @@ contract CounterTest is Test {
 
 verbosityの略で、コントラクトのコールをどれだけ詳細に表示するか、また、その詳細に表示する条件について決めるものです。
 
-`-v`,`-vv`,`-vvv`,`-vvvv`,`-vvvvv`の5つのオプションが設定可能です。
+`-vv`,`-vvv`,`-vvvv`,`-vvvvv`の4つのオプションが設定可能です。
 
 ```
 Verbosity levels:
@@ -217,7 +217,7 @@ Test result: ok. 2 passed; 0 failed; finished in 20.22ms
 ```
 
 各関数がどのようなパラメータで呼ばれたか等、詳細な情報が表示されるので、デバッグによく使います。
-特に`-vvv`は失敗したテストに対してのみトレースが表示されます。
+特に`-vvv`は失敗したテストに対してのみトレースが表示されることから使うことが多いです。
 
 ## 演習
 
@@ -226,7 +226,7 @@ Test result: ok. 2 passed; 0 failed; finished in 20.22ms
 以下のコマンドを実行して全てのテストがパスするように、`challenge-counter/Counter.sol`の`decrement`関数を実装してください。
 
 ```
-forge test -vvv --match-contract CounterTest
+forge test -vvv --match-path course/foundry/challenge-counter/Counter.t.sol
 ```
 
 ### 演習2: Fungibleトークンのtransferの実装
@@ -236,7 +236,8 @@ forge test -vvv --match-contract CounterTest
 `transfer`関数の挙動は、[ERC-20トークンの仕様](https://eips.ethereum.org/EIPS/eip-20)を参考にしてください。
 
 ```
-forge test -vvv --match-contract TokenTest --match-test testTransfer --no-match-test testTransferFrom
+forge test -vvv --match-path course/foundry/challenge-token/Token.t.sol --match-test testTransfer --no-ma
+tch-test testTransferFrom
 ```
 
 以下の点に気をつけてください。
@@ -249,7 +250,7 @@ forge test -vvv --match-contract TokenTest --match-test testTransfer --no-match-
 各関数の挙動は[ERC-20トークンの仕様](https://eips.ethereum.org/EIPS/eip-20)を参考にしてください。
 
 ```
-forge test -vvv --match-contract TokenTest
+forge test -vvv --match-path course/foundry/challenge-token/Token.t.sol
 ```
 
 以下の点に気をつけてください。

@@ -260,8 +260,6 @@ Reentrancy Attackには、最初に呼び出される関数と、その関数の
 まず、Single-Function Reentrancy Attackとは、冒頭の例の`Vault`コントラクトに対して行った攻撃のように、ある単一の関数を2回以上入れ子に呼び出すReentrancy Attackのことです。
 詳細は冒頭で説明した通りですので、割愛します。
 
-TODO: 図
-
 #### 演習
 
 最初の演習とは異なり、`Vault`コントラクトが初期状態で10000 ether所持しています。全てのEtherを奪取してください。
