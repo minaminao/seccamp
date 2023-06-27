@@ -229,21 +229,20 @@ Test result: ok. 2 passed; 0 failed; finished in 20.22ms
 forge test -vvv --match-path course/foundry/challenge-counter/Counter.t.sol
 ```
 
-### 演習2: Fungibleトークンのtransferの実装
+### 演習2: Fungibleトークンの`transfer`の実装
 
 以下のコマンドを実行してテスト`testTransfer`がパスするように、Fungibleトークン`challenge-token/Token.sol`の`transfer`関数を実装してください。
 `transferFrom`関数と`approve`関数はまだ実装しなくても大丈夫です。
 `transfer`関数の挙動は、[ERC-20トークンの仕様](https://eips.ethereum.org/EIPS/eip-20)を参考にしてください。
 
 ```
-forge test -vvv --match-path course/foundry/challenge-token/Token.t.sol --match-test testTransfer --no-ma
-tch-test testTransferFrom
+forge test -vvv --match-path course/foundry/challenge-token/Token.t.sol --match-test testTransfer --no-match-test testTransferFrom
 ```
 
 以下の点に気をつけてください。
 - トークンの送金が成功したら`true`、失敗したら`false`を返してください。
 
-### 演習3: FungibleトークンのtransferFromとapproveの実装
+### 演習3: Fungibleトークンの`transferFrom`と`approve`の実装
 
 演習2の続きです。
 以下のコマンドを実行して全てのテストがパスするように、`challenge-token/Token.sol`の`transferFrom`関数と`approve`関数を実装してください。
