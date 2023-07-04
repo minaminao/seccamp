@@ -62,6 +62,26 @@ contract Vault {
 2. `withdrawAll`関数を呼び出す
 3. `withdrawAll`関数中の`call`による1 etherの送金を、receive Ether関数で受け取り、再度`withdrawAll`関数を呼び出す
 
+図に表すと次のようになります。
+
+```mermaid
+sequenceDiagram
+    participant Attacker
+    participant Vault
+
+	Attacker ->>+ Vault: 1 etherをdeposit
+	Vault -->>- Attacker: (deposit終了)
+	Attacker ->>+ Vault: withdrawAll①
+	Vault ->>+ Attacker: 1 ether送金①
+	Attacker ->>+ Vault: withdrawAll②
+	Vault ->>+ Attacker: 1 ether送金②
+	Note over Attacker: 残高: 2 ether
+	Attacker -->>- Vault: (送金②終了)
+	Vault -->>- Attacker: (withdrawAll②終了)
+	Attacker -->>- Vault: (送金①終了)
+	Vault -->>- Attacker: (withdrawAll①終了)
+```
+
 このように、関数の呼び出し中に、もう一度その関数を呼び出すことが「reentrancy」と言われる所以になっています。
 
 それでは、なぜこれでEtherが奪取されてしまうかについて詳しく追っていきます。
@@ -312,6 +332,34 @@ Single-Function Reentrancy Attackで扱った`Vault`コントラクトと似て�
 そのため、残高を他のアドレスに避難させることで、攻撃者はデポジットした額より大きな額を引き出すことが可能です。
 このように、同じ状態（この例では`balanceOf`）を共有する異なる関数を入れ子（この例では`withdrawAll` -> `transfer`）に呼び出す攻撃をCross-Function Reentrancy Attackと呼びます。
 
+図に表すと次のようになります。
+
+```mermaid
+sequenceDiagram
+    participant Attacker
+    participant Vault
+    participant AttackerSub
+
+	Attacker ->>+ Vault: deposit
+	Vault -->>- Attacker: (deposit終了)
+	Attacker ->>+ Vault: withdrawAll
+	Vault ->>+ Attacker: 送金
+	Attacker ->>+ Vault: AttackerSubに資金をtransferして
+	Vault -->>- Attacker: (transfer終了)
+	Attacker -->>- Vault: (送金終了)
+	Vault -->>- Attacker: (withdrawAll終了)
+	AttackerSub ->>+ Vault: withdrawAll
+	Vault ->>+ AttackerSub: 送金
+	AttackerSub -->>- Vault: (送金終了)
+	Vault -->>- AttackerSub: (withdrawAll終了)
+	AttackerSub ->>+ Attacker: 送金
+	Attacker -->>- AttackerSub: (送金終了)
+	Attacker ->>+ Vault: withdrawAll
+	Vault ->>+ Attacker: 送金
+	Attacker -->>- Vault: (送金終了)
+	Vault -->>- Attacker: (withdrawAll終了)
+```
+
 この攻撃への対策は、Checks-Effects-Interactionsパターンに従うことです。
 また、最悪従っていなくても`ReentrancyGuard`を適切に適用させていれば、この攻撃は防げます。
 この例では、`transfer`に対しても`nonReentrant`モディファイアを修飾すれば、攻撃は実行できません。
@@ -396,6 +444,41 @@ Single-Function Reentrancy AttackやCross-Function Reentrancy Attackは防げて
 例えば、`withdrawAll`関数の`msg.sender.call`コールを受け取ったら、`VaultToken`コントラクトの`transfer`関数を呼び出すことを考えてみてください。
 Cross-Function Reentrancy Attackの例と同じように、`withdrawAll`関数の`msg.sender.call`が実行される時点では、`balanceOf[msg.sender]`が更新されていないため、`VaultToken`コントラクトの`transfer`関数で任意のアドレスに残高を送ることができます。
 そして、残高を他のアドレスに避難させることで、攻撃者はデポジットした額より大きな額を引き出すことが可能です。
+
+図に表すと次のようになります。
+
+```mermaid
+sequenceDiagram
+    participant Attacker
+    participant Vault
+    participant VaultToken
+    participant AttackerSub
+
+	Attacker ->>+ Vault: deposit
+	Vault ->>+ VaultToken: mint
+	VaultToken -->>- Vault: (mint終了)
+	Vault -->>- Attacker: (deposit終了)
+	Attacker ->>+ Vault: withdrawAll
+	Vault ->>+ Attacker: 送金
+	Attacker ->>+ VaultToken: AttackerSubに資金をtransferして
+	VaultToken -->>- Attacker: (transfer終了)
+	Attacker -->>- Vault: (送金終了)
+	Vault ->>+ VaultToken: burnAccount
+	VaultToken -->>- Vault: (burnAccount終了)
+	Vault -->>- Attacker: (withdrawAll終了)
+	AttackerSub ->>+ Vault: withdrawAll
+	Vault ->>+ AttackerSub: 送金
+	AttackerSub -->>- Vault: (送金終了)
+	Vault ->>+ VaultToken: burnAccount
+	VaultToken -->>- Vault: (burnAccount終了)
+	Vault -->>- AttackerSub: (withdrawAll終了)
+	AttackerSub ->>+ Attacker: 送金
+	Attacker -->>- AttackerSub: (送金終了)
+	Attacker ->>+ Vault: withdrawAll
+	Vault ->>+ Attacker: 送金
+	Attacker -->>- Vault: (送金終了)
+	Vault -->>- Attacker: (withdrawAll終了)
+```
 
 以上のように、Reentrancy Guardを適用するだけではReentrancy Attackの対策として不十分であるケースが多々あります。
 ただ無思考にReentrancy Guardを適用していれば、Reentrancy Attackを防げると考えてはいけないということです。
