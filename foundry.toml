@@ -4,4 +4,7 @@ out = "out"
 libs = ["lib"]
 match_path = "*/*.t.sol"
 
+[rpc_endpoints]
+mainnet = "https://rpc.ankr.com/eth"
+
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config

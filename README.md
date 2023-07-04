@@ -1,6 +1,12 @@
 # 分散型アプリケーション脆弱性解析ゼミ
 
-IPAが主催する[セキュリティ・キャンプ全国大会2023](https://www.ipa.go.jp/jinzai/security-camp/2023/zenkoku/index.html)の『分散型アプリケーション脆弱性解析ゼミ』の紹介です。
+[セキュリティ・キャンプ全国大会2023](https://www.ipa.go.jp/jinzai/security-camp/2023/zenkoku/index.html)の『分散型アプリケーション脆弱性解析ゼミ』の紹介と講義資料を置くリポジトリです。
+
+講義資料はこちら: [course](course)
+
+以下、応募開始時点で公開したゼミの紹介です（エントリー期間は終了しました）。
+
+---
 
 ## 概要
 
