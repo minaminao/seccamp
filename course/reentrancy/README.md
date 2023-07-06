@@ -121,7 +121,7 @@ sequenceDiagram
 
 ### 演習
 
-`reentrancy/challenge-single-function`ディレクトリの`Exploit.t.sol`を完成させて、`Vault`コントラクトへのReentrancy Attackを成功させてください。
+`reentrancy/challenge-single-function`ディレクトリの`Challenge.t.sol`を完成させて、`Vault`コントラクトへのReentrancy Attackを成功させてください。
 
 以下のコマンドを実行して、テストがパスしたら成功です。
 
@@ -424,12 +424,12 @@ contract Vault is ReentrancyGuard {
 
 次に、`Vault`コントラクトは、Etherを預かり、その預かったEtherに対して独自トークンである`VaultToken`を1:1で発行するように設計されたコントラクトです。
 `deposit`関数と`withdrawAll`関数を持っています。
-どちらの関数も`nonReentranct`モディファイアが修飾されています。
+どちらの関数も`nonReentrant`モディファイアが修飾されています。
 
 この構成はあくまで攻撃シナリオを説明するための最小限の構成を目指して作ったものです。
 現実的に自然な設定は、この保管庫からFlash Loanなどの便利な機能が利用できるなど考えられますが、攻撃の本質には関係ありません。
 
-さて、Cross-Function Reentrancy Attackとは異なり、`Vault`コントラクトの全ての関数に`nonReentranct`モディファイアが修飾されています。
+さて、Cross-Function Reentrancy Attackとは異なり、`Vault`コントラクトの全ての関数に`nonReentrant`モディファイアが修飾されています。
 そのため、`Vault`コントラクト内の関数を入れ子に呼び出すことはできません。
 これはSingle-Function Reentrancy AttackとCross-Function Reentrancy Attackで紹介した`withdrawAll`関数とは異なっています。
 Single-Function Reentrancy AttackやCross-Function Reentrancy Attackは防げていそうです。
