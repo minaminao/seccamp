@@ -3,8 +3,13 @@
 随時公開します。
 
 ## 一覧
-1. [Foundryの紹介](foundry)
-2. [Ethernautの紹介](ethernaut)
-3. [Reentrancy Attack](reentrancy)
-4. [Oracle Manipulation Attack & Flash Loan](oracle-manipulation)
-5. ...
+
+資料の順序は適当です。
+
+1. [Introduction to Foundry](foundry)
+2. [Reentrancy Attacks](reentrancy)
+3. [Oracle Manipulation Attacks & Flash Loans](oracle-manipulation)
+4. [Ethernaut with Foundry](ethernaut)
+5. [EVM Assembly Programming with Huff](evm-with-huff)
+6. [Reversing EVM Bytecodes](reversing-evm)
+7. ...

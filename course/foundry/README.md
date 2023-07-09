@@ -1,4 +1,4 @@
-# Foundryの紹介
+# Introduction to Foundry
 
 このゼミでは、開発ツールとして[Foundry](https://github.com/foundry-rs/foundry)を使います。
 Foundryは[Paradigm](https://www.paradigm.xyz/)が主導して開発をしているRust製のOSSです。

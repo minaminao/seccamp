@@ -1,4 +1,4 @@
-# Foundryを使ってEthernautを解く
+# Ethernaut with Foundry
 
 [Ethernaut](https://ethernaut.openzeppelin.com/)とは、Solidityで書かれたコントラクトを攻撃することで脆弱性を学べるWebサイトです。
 OpenZeppelinがホストしています。

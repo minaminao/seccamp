@@ -1,4 +1,4 @@
-# Oracle Manipulation Attack & Flash Loan
+# Oracle Manipulation Attacks & Flash Loans
 
 **目次**
 - [オラクルとは](#オラクルとは)
