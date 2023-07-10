@@ -240,7 +240,7 @@ forge test -vvv --match-path course/foundry/challenge-token/Token.t.sol --match-
 ```
 
 以下の点に気をつけてください。
-- トークンの送金が成功したら`true`、失敗したら`false`を返してください。
+- トークンの送金が成功したら`true`、失敗したら`false`を返すのではなくリバートさせてください。
 
 ### 演習3: Fungibleトークンの`transferFrom`と`approve`の実装
 

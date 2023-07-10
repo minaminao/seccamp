@@ -23,7 +23,7 @@
 
 ### Huffとは
 
-[Huff](https://huff.sh/)とは、EVMニーモニック（`PUSH1`や`MSTORE`など）レベルでコントラクトを開発できるプログラミング言語です。
+[Huff](https://huff.sh/)とは、EVM命令（`PUSH1`や`MSTORE`など）レベルでコントラクトを開発できるプログラミング言語です。
 Solidityコントラクト内部でよく使われるYul言語に近いですが、Yulよりも低いレイヤーでの細かな操作ができます。
 
 ### Huffの用途
@@ -99,7 +99,7 @@ Yellow Paperに準拠すれば、トランザクションには`to`フィール�
 
 `to`フィールドが空であるとき、`data`フィールドに`bytecode`が実行されて、`Counter`コントラクトのための新しいアドレスが割り当てられ、そのアドレスにコントラクトがデプロイされます。
 
-この中身についての解説は[Reversing EVM Bytecodes](reversing-evm)で行います。
+この中身についての解説は「[Reversing EVM Bytecodes](reversing-evm)」で行います。
 
 ### ストレージ、メモリ、スタック
 
@@ -268,7 +268,7 @@ forge test --match-path course/evm-with-huff/challenge-even/EvenSolver.t.sol -vv
 
 ### 演習: EVM Quine
 
-[Quine](https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AF%E3%82%A4%E3%83%B3_(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0)とは、自身のソースコードと完全に同じ文字列を出力するプログラムのことです。
+[Quine](https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AF%E3%82%A4%E3%83%B3_(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0))とは、自身のソースコードと完全に同じ文字列を出力するプログラムのことです。
 
 例えば、Pythonにおいては次のコードがQuineの一つです。
 
