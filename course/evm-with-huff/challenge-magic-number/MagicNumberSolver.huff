@@ -1,0 +1,10 @@
+#define macro MAIN() = takes (0) returns (0) {
+    ////////// YOUR CODE GOES HERE //////////
+    0x2a    // [0x2a]
+    0x00    // [0x00, 0x2a]
+    mstore  // []
+    0x20    // [0x20]
+    0x00    // [0x00, 0x20]
+    return  // []
+    ////////// YOUR CODE END //////////
+}

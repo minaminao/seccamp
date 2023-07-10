@@ -4,6 +4,7 @@
 course/**/_*
 course/**/*Solution.sol
 course/**/*Solution.t.sol
+course/**/*Solution.huff
 
 # Foundry
 .github/workflows/test.yml
