@@ -99,7 +99,7 @@ Yellow Paperに準拠すれば、トランザクションには`to`フィール�
 
 `to`フィールドが空であるとき、`data`フィールドに`bytecode`が実行されて、`Counter`コントラクトのための新しいアドレスが割り当てられ、そのアドレスにコントラクトがデプロイされます。
 
-この中身についての解説は「[Reversing EVM Bytecodes](reversing-evm)」で行います。
+この中身についての解説は「[Reversing EVM Bytecodes](../reversing-evm)」で行います。
 
 ### ストレージ、メモリ、スタック
 
@@ -214,6 +214,9 @@ Solidityで書いた最適化を行ったコントラクトが62バイトだっ�
 
 上記のように、Huffでは`PUSH`命令以外の全ての命令は、ニーモニックをそのまま記述すれば良いです。
 `PUSH`命令のみニーモニックを書くのではなく、プッシュする値を記述します。
+
+以下、演習です。
+演習では以上で説明したHuffの機能以外に使用しませんが、他にも[様々な機能](https://docs.huff.sh/get-started/huff-by-example/)があります。
 
 ### 演習: 7バイトのMagicNumberソルバー
 

@@ -37,7 +37,7 @@
 
 ## EVMバイトコードの逆アセンブル
 
-さきほどの`bytecode`を`RETURN`オペコードまで逆アセンブルすると次のようになります。
+「[EVM Assembly Programming with Huff](../evm-with-huff/)」で紹介したCounter.solの`bytecode`を、`RETURN`オペコードまで逆アセンブルすると次のようになります。
 
 ```
 0x00: (0x60) PUSH1 0x80
