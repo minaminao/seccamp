@@ -19,7 +19,7 @@ contract HuffUtils {
     function compile(string memory fileName) public payable returns (bytes memory code) {
         string[] memory cmds = new string[](3);
         cmds[0] = "huffc";
-        cmds[1] = string(fileName);
+        cmds[1] = fileName;
         cmds[2] = "-b";
         code = vm.ffi(cmds);
     }
@@ -27,7 +27,7 @@ contract HuffUtils {
     function compileRuntime(string memory fileName) public payable returns (bytes memory code) {
         string[] memory cmds = new string[](3);
         cmds[0] = "huffc";
-        cmds[1] = string(fileName);
+        cmds[1] = fileName;
         cmds[2] = "-r";
         code = vm.ffi(cmds);
     }
