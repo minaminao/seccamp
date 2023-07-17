@@ -12,4 +12,5 @@
 4. [Ethernaut with Foundry](ethernaut)
 5. [EVM Assembly Programming with Huff](evm-with-huff)
 6. [Reversing EVM Bytecodes](reversing-evm)
-7. ...
+7. [Storage Collisions & Proxies](storage-collision)
+8. ...
