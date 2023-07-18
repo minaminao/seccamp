@@ -357,10 +357,6 @@ sequenceDiagram
 	AttackerSub ->>+ Attacker: 送金
 	Attacker -->>- AttackerSub: (送金終了)
 	AttackerSub -->>- Attacker: (withdrawAllの指示終了)
-	Attacker ->>+ Vault: withdrawAll
-	Vault ->>+ Attacker: 送金
-	Attacker -->>- Vault: (送金終了)
-	Vault -->>- Attacker: (withdrawAll終了)
 ```
 
 この例とは別に、`AttackerSub`が`withdrawAll`ではなく`transfer`を呼び出すパターンも考えられます。
@@ -472,6 +468,7 @@ sequenceDiagram
 	Vault ->>+ VaultToken: burnAccount
 	VaultToken -->>- Vault: (burnAccount終了)
 	Vault -->>- Attacker: (withdrawAll終了)
+	Attacker ->>+ AttackerSub: withdrawAllを指示
 	AttackerSub ->>+ Vault: withdrawAll
 	Vault ->>+ AttackerSub: 送金
 	AttackerSub -->>- Vault: (送金終了)
@@ -480,10 +477,7 @@ sequenceDiagram
 	Vault -->>- AttackerSub: (withdrawAll終了)
 	AttackerSub ->>+ Attacker: 送金
 	Attacker -->>- AttackerSub: (送金終了)
-	Attacker ->>+ Vault: withdrawAll
-	Vault ->>+ Attacker: 送金
-	Attacker -->>- Vault: (送金終了)
-	Vault -->>- Attacker: (withdrawAll終了)
+	AttackerSub -->>- Attacker: (withdrawAllの指示終了)
 ```
 
 以上のように、Reentrancy Guardを適用するだけではReentrancy Attackの対策として不十分であるケースが多々あります。
