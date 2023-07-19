@@ -2,11 +2,34 @@
 
 [セキュリティ・キャンプ全国大会2023](https://www.ipa.go.jp/jinzai/security-camp/2023/zenkoku/index.html)の『分散型アプリケーション脆弱性解析ゼミ』の紹介と講義資料を置くリポジトリです。
 
-講義資料はこちら: [course](course)
+---
 
-以下、応募開始時点で公開したゼミの紹介です（エントリー期間は終了しました）。
+## 講義資料
+
+随時公開します。資料の順序は適当です。
+
+1. [Introduction to Foundry](course/foundry)
+	- ゼミを通して使用する開発ツールであるFoundryの使い方を紹介し、コントラクトを作成する演習を行います。
+2. [Reentrancy Attacks](course/reentrancy)
+	- Reentrancy Attackの仕組みと対策、類型を紹介し、攻撃の演習を行います。
+3. [Oracle Manipulation Attacks & Flash Loans](course/oracle-manipulation)
+	- Oracle Manipulation Attackの仕組みと対策、Flash Loanを組み合わせた攻撃を紹介し、攻撃の演習を行います。
+4. [Ethernaut with Foundry](course/ethernaut)
+	- EthernautをFoundryで解く流れを紹介し、実際に解いてみてForge Scriptを利用してオンチェーンと対話する方法を学びます。
+5. [EVM Assembly Programming with Huff](course/evm-with-huff)
+	- Huff言語でEVMの命令を直接記述することでコントラクトを作成する方法を紹介し、その演習を行います。
+6. [Reversing EVM Bytecodes](course/reversing-evm)
+	- EVMバイトコードを逆アセンブルして、その結果を読み解くリバーシング技術を紹介します。
+7. [Storage Collisions & Proxies](course/storage-collision)
+	- Storage Collisionとプロキシの仕組みについて紹介し、攻撃の演習を行います。
+8. On-Chain Analysis of Attacks
+	- トランザクショントレーサーなどの攻撃の調査技術について紹介し、調査の演習を行います。
+9. How to Reproduce Attacks
+	- 攻撃の調査結果を使用し、攻撃を再現する手法について紹介します。
 
 ---
+
+以下、応募開始時点で公開したゼミの紹介です（エントリー期間は終了しました）。
 
 ## 概要
 
@@ -40,8 +63,6 @@ EVM系の攻撃を扱うことを想定していますが、希望があればEV
 応募のエントリーの〆切は5月15日で、応募課題の〆切が5月22日です。エントリーがまず先で、エントリー自体は簡単にできるので、現時点で参加してみようかなと思った方は、とりあえず[ここ](https://www.ipa.go.jp/jinzai/security-camp/2023/zenkoku/vote.html)からエントリーしてもらえると（人数把握など出来て）嬉しいです。
 
 応募お待ちしております！
-
----
 
 最後に、応募課題を解くのに役立つかもしれない資料を置いておきます。
 - https://twitter.com/BlockSecTeam: 攻撃情報つぶやいてくれる。
