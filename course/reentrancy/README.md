@@ -547,7 +547,7 @@ Read-Only Reentrancy Attackとは、reentrantされる関数がview関数、す�
 
 利用する他の分散型アプリケーションと組み合わせたときの脆弱性について考えなくてはいけないことは、Read-Only Reentrancy Attackに限らず、Cross-Contract Reentrancy Attackでも同様でした。
 実際に起こるRead-Only Reentrancy Attackは基本的にCross-Contract Reentrancy Attackでもあります。
-細かい話ですが、先程説明したCross-Contract Reentrancy Attackは被害を受けるコントラクト側が原因（Check-Effects-Interactionsパターンに従っていない）がありましたが、今回説明したRead-Only Reentrancy Attackでは被害を受けないコントラクト（利用されるコントラクト）側に原因（Check-Effects-Interactionsパターンに従っていない）という関係にあります。
+細かい話ですが、先程説明したCross-Contract Reentrancy Attackは被害を受けるコントラクト側に原因（Check-Effects-Interactionsパターンに従っていない）がありましたが、今回説明したRead-Only Reentrancy Attackでは被害を受けないコントラクト（利用されるコントラクト）側に原因（Check-Effects-Interactionsパターンに従っていない）があるという関係にあります。
 
 以上の理由から、Read-Only Reentrancy Attackが個別に議論されることがあります。
 そして、このRead-Only Reentrancy Attackも他のReentrancy Attackと同様にChecks-Effects-Interactionsパターンを遵守していれば防ぐことができます。
