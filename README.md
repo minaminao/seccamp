@@ -22,8 +22,8 @@
 	- EVMバイトコードを逆アセンブルして、その結果を読み解くリバーシング技術を紹介します。
 7. [Storage Collisions & Proxies](course/storage-collision)
 	- Storage Collisionとプロキシの仕組みについて紹介し、攻撃の演習を行います。
-8. On-Chain Analysis of Attacks
-	- トランザクショントレーサーなどの攻撃の調査技術について紹介し、調査の演習を行います。
+8. [On-Chain Investigations of Attacks](course/attack-investigation)
+	- トランザクショントレーサーなどの攻撃の調査技術について紹介します。
 9. How to Reproduce Attacks
 	- 攻撃の調査結果を使用し、攻撃を再現する手法について紹介します。
 
