@@ -24,7 +24,7 @@
 	- Storage Collisionとプロキシの仕組みについて紹介し、攻撃の演習を行います。
 8. [On-Chain Investigations of Attacks](course/attack-investigation)
 	- トランザクショントレーサーなどの攻撃の調査技術について紹介します。
-9. How to Reproduce Attacks
+9. [How to Reproduce Attacks](course/reproducing-attack/)
 	- 攻撃の調査結果を使用し、攻撃を再現する手法について紹介します。
 
 ---
