@@ -14,5 +14,6 @@ contract Counter {
 
     function decrement() public {
         ////////// YOUR CODE HERE //////////
+        number--;
     }
 }
